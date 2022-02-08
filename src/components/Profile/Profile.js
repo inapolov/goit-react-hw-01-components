@@ -3,7 +3,7 @@ import styles from './Profile.module.css';
 
 export default function Profile(props) {
   // console.log(props);
-  const { avatar, username='no name', tag, location, followers, views, likes } = props;
+  const { avatar, username='no name', tag, location, stats } = props;
   return (
     <div className={styles.profile}>
       <div className={styles.description}>
@@ -20,15 +20,15 @@ export default function Profile(props) {
       <ul className={styles.stats}>
         <li className={styles.statsItem}>
           <span className={styles.label}>Followers</span>
-          <span className={styles.quantity}>{followers}</span>
+          <span className={styles.quantity}>{stats.followers}</span>
         </li>
         <li className={styles.statsItem}>
           <span className={styles.label}>Views</span>
-          <span className={styles.quantity}>{views}</span>
+          <span className={styles.quantity}>{stats.views}</span>
         </li>
         <li className={styles.statsItem}>
           <span className={styles.label}>Likes</span>
-          <span className={styles.quantity}>{likes}</span>
+          <span className={styles.quantity}>{stats.likes}</span>
         </li>
       </ul>
     </div>
@@ -40,7 +40,5 @@ Profile.propTypes= {
     username: PropTypes.string.isRequired,
     tag: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    followers: PropTypes.number.isRequired,
-    views: PropTypes.number.isRequired,
-    likes: PropTypes.number.isRequired,
+    stats: PropTypes.object.isRequired,    
 };
